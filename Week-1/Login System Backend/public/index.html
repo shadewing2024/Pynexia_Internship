@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <section class="auth-card">
+
+            <div class="logo">LS</div>
+            <h1 id="form-title">Welcome Back</h1>
+            <p class="subtitle" id="form-subtitle">
+                Sign in to access your account
+            </p>
+
+            <div id="message" class="message" role="status" aria-live="polite"></div>
+
+            <form id="auth-form">
+
+                <div class="form-group" id="name-group" hidden>
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="submit-button">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p class="switch-text" id="switch-text">
+                Don't have an account?
+                <button type="button" id="switch-button">Create Account</button>
+            </p>
+
+            <section id="dashboard" hidden>
+                <h2 id="welcome-message">Your Account</h2>
+                <p id="profile-email"></p>
+                <button type="button" id="logout-button" class="secondary-button">
+                    Log Out
+                </button>
+            </section>
+
+            <p class="footer-text">Secure Authentication · Powered by Node.js</p>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
