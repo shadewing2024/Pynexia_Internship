@@ -99,23 +99,6 @@ The profile endpoint requires a valid JWT in the Authorization header:
 
 2. Email verification for a newly registered account should also be tested with an   email address that is not already registered.
 
-## Project Structure:
-
-Login System Backend/
-├── middleware/
-├── models/
-├── public/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-├── routes/
-├── .env (example)
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── README.md
-└── server.js
-
 Note: .env and node_modules/ should not be committed to Git.
 
 ## Author:
