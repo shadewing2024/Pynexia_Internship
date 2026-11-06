@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendify | Employee Attendance</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= LOGIN / REGISTER PAGE ================= -->
+    <main class="auth-page" id="auth-page">
+
+        <section class="auth-card">
+
+            <div class="brand">
+                <div class="logo">A</div>
+                <span>Attendify</span>
+            </div>
+
+            <div class="auth-heading">
+                <p class="eyebrow">EMPLOYEE PORTAL</p>
+
+                <h1 id="form-title">Welcome Back!</h1>
+
+                <p class="subtitle" id="form-subtitle">
+                    Sign in to manage your attendance.
+                </p>
+            </div>
+
+            <!-- Success and error messages -->
+            <div id="message" class="message"
+                 role="status" aria-live="polite"></div>
+
+            <form id="auth-form">
+
+                <!-- Name field (visible during registration) -->
+                <div class="form-group" id="name-group" hidden>
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="submit-button" class="primary-button">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p class="switch-text" id="switch-text">
+                Don't have an account?
+                <button type="button" id="switch-button">
+                    Create Account
+                </button>
+            </p>
+
+            <p class="auth-footer">
+                Secure Employee Attendance Management
+            </p>
+
+        </section>
+    </main>
+
+
+    <!-- ================= EMPLOYEE DASHBOARD ================= -->
+    <main class="dashboard-page" id="dashboard" hidden>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="logo">A</div>
+                <span>Attendify</span>
+            </div>
+
+            <div class="sidebar-label">MENU</div>
+
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active">
+                    <span class="nav-icon">▦</span>
+                    Overview
+                </a>
+
+                <a href="#attendance-section" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    My Attendance
+                </a>
+
+                <a href="#history-section" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    Attendance History
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="avatar" id="sidebar-avatar">E</div>
+
+                    <div class="sidebar-user-info">
+                        <strong id="sidebar-name">Employee</strong>
+                        <span>Employee Account</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Log Out
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- Main dashboard content -->
+        <section class="main-content" id="overview">
+
+            <!-- Top bar -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">EMPLOYEE WORKSPACE</p>
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="topbar-profile">
+                    <div class="avatar" id="header-avatar">E</div>
+
+                    <div>
+                        <strong id="header-name">Employee</strong>
+                        <span>Employee</span>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- Welcome section -->
+            <section class="welcome-section">
+
+                <div>
+                    <p class="welcome-label">YOUR WORKSPACE</p>
+
+                    <h2 id="welcome-message">
+                        Welcome back!
+                    </h2>
+
+                    <p>
+                        Keep track of your working hours and daily attendance.
+                    </p>
+                </div>
+
+                <div class="welcome-decoration">✦</div>
+
+            </section>
+
+
+            <!-- Date and current status -->
+            <section class="date-status-row">
+
+                <div class="date-card">
+                    <span class="card-icon">▣</span>
+
+                    <div>
+                        <span class="info-label">TODAY'S DATE</span>
+                        <strong id="current-date">Loading date...</strong>
+                    </div>
+                </div>
+
+                <div class="date-card">
+                    <span class="card-icon">◷</span>
+
+                    <div>
+                        <span class="info-label">CURRENT TIME</span>
+                        <strong id="current-time">--:--</strong>
+                    </div>
+                </div>
+
+                <div class="date-card status-card">
+                    <span class="card-icon">●</span>
+
+                    <div>
+                        <span class="info-label">ATTENDANCE STATUS</span>
+                        <strong id="attendance-status">Not Checked In</strong>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Check-in / Check-out -->
+            <section class="attendance-section" id="attendance-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">DAILY ATTENDANCE</p>
+                        <h2>Manage Your Attendance</h2>
+                    </div>
+
+                    <span class="office-badge" id="office-status">
+                        Office Open
+                    </span>
+                </div>
+
+
+                <div class="attendance-cards">
+
+                    <!-- Check-in card -->
+                    <article class="action-card checkin-card">
+
+                        <div class="action-card-top">
+                            <div class="action-icon">↘</div>
+                            <span class="action-label">START YOUR DAY</span>
+                        </div>
+
+                        <h3>Check In</h3>
+
+                        <p>
+                            Record your arrival time when you start working.
+                        </p>
+
+                        <div class="time-display" id="checkin-time">
+                            --:--
+                        </div>
+
+                        <button
+                            type="button"
+                            id="check-in-button"
+                            class="attendance-button checkin-button"
+                        >
+                            Check In Now
+                        </button>
+
+                    </article>
+
+
+                    <!-- Check-out card -->
+                    <article class="action-card checkout-card">
+
+                        <div class="action-card-top">
+                            <div class="action-icon">↗</div>
+                            <span class="action-label">END YOUR DAY</span>
+                        </div>
+
+                        <h3>Check Out</h3>
+
+                        <p>
+                            Record your departure time when you finish working.
+                        </p>
+
+                        <div class="time-display" id="checkout-time">
+                            --:--
+                        </div>
+
+                        <button
+                            type="button"
+                            id="check-out-button"
+                            class="attendance-button checkout-button"
+                        >
+                            Check Out Now
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Attendance history -->
+            <section class="history-section" id="history-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR RECORDS</p>
+                        <h2>Attendance History</h2>
+                    </div>
+                </div>
+
+                <div class="history-card">
+
+                    <div class="history-header">
+                        <h3>Recent Attendance</h3>
+
+                        <span class="history-caption">
+                            Your daily attendance records
+                        </span>
+                    </div>
+
+                    <div class="table-container">
+
+                        <table class="attendance-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="attendance-history">
+                                <tr>
+                                    <td colspan="4" class="empty-history">
+                                        Attendance records will appear here.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+                <p>Attendify © 2026 · Employee Attendance System</p>
+                <p>Securely powered by Node.js and MongoDB</p>
+            </footer>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
